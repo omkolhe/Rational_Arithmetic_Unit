@@ -7,7 +7,7 @@ entity dadda_multi is
   port(
     a: in std_logic_vector(16 downto 0);
     b: in std_logic_vector(16 downto 0);
-    p: out std_logic_vector(34 downto 0)
+    p: out std_logic_vector(33 downto 0)
   );
 end dadda_multi;
 
@@ -23,6 +23,7 @@ signal l7: std_logic_vector(16 downto 0);
 signal l8: std_logic_vector(16 downto 0);
 signal l9: std_logic_vector(16 downto 0);
 signal l10: std_logic_vector(16 downto 0);
+signal l11: std_logic_vector(16 downto 0);
 signal l12: std_logic_vector(16 downto 0);
 signal l13: std_logic_vector(16 downto 0);
 signal l14: std_logic_vector(16 downto 0);
