@@ -14,6 +14,7 @@ end dadda_multi_add;
 architecture dadda_multi_add_arch of dadda_multi_add is
 signal abar,cbar : std_logic_vector(16 downto 0);
 signal temp_out : std_logic_vector(33 downto 0);
+signal final_sign : std_logic;
 -- Signals having all the parital products
 signal l0: std_logic_vector(17 downto 16);
 -- ^Contains the extra partial products which arise due to change to signed dadda multipler
@@ -2187,10 +2188,13 @@ begin
 ----------------------------------------------------------------
 
 temp_out <= std_logic_vector(unsigned(s8_1(33 downto 0)) + unsigned(s8_2(33 downto 0)));
-outp <= temp_out(33 downto 0);
+outp(32 downto 0) <= temp_out(32 downto 0);
+final_sign <= l0(16) xor l18(16);
+outp(33) <= temp_out(33) when (final_sign = '1') else l0(16);
 
 --Add in the end
 --Mux for MSB
 --Condition for updating final o/p only (But will we reach that condition)
+----No as at max only one is positive
 
 end architecture;
